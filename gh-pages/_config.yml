@@ -1,0 +1,27 @@
+url: https://gh-pages.example.com
+title: Github Pages Test
+author:
+  name: A Jekyll tester
+  # email: xxx@example.com
+  uri: https://example.com/
+description: "Your site description"
+copyright: "Copyright © 2023 Your Name"
+
+timezone: Europe/Berlin
+date_format: "%b %-d, %Y"
+date_format_long: "%B %-d, %Y"
+
+## Github Pages Plugins
+# https://docs.github.com/en/github/working-with-github-pages/about-github-pages-and-jekyll#plugins
+# https://pages.github.com/versions/ Jekyll 3.9.3 vs. 4.3.2
+plugins:
+  - jekyll-feed # 0.15.1 vs. 0.17
+  - jekyll-redirect-from # 0.16.0
+  - jekyll-sitemap # 1.4.0
+
+## jekyll-feed
+lang: en
+feed:
+  path: /feed.xml
+  posts_limit: 999
+  # excerpt_only: false

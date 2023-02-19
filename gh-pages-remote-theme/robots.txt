@@ -1,0 +1,4 @@
+Sitemap: https://gh-pages-remote-theme.example.com/sitemap.xml
+
+User-agent: *
+Disallow: /

@@ -1,0 +1,4 @@
+Sitemap: https://gh-pages.example.com/sitemap.xml
+
+User-agent: *
+Disallow: /

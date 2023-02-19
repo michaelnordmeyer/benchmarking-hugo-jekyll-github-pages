@@ -1,0 +1,6 @@
+<li>
+    <a href="{{ post.url | relative_url }}">
+        {{ post.title | escape }}
+        <small><time>{{ post.date | date: site.date_format }}</time></small>
+    </a>
+</li>

@@ -1,0 +1,4 @@
+Sitemap: https://jekyll.example.com/sitemap.xml
+
+User-agent: *
+Disallow: /
