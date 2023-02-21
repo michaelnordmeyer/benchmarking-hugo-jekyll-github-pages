@@ -16,7 +16,6 @@ date_format_long: "%B %-d, %Y"
 # https://pages.github.com/versions/ Jekyll 3.9.3 vs. 4.3.2
 plugins:
   - jekyll-feed # 0.15.1 vs. 0.17
-  - jekyll-redirect-from # 0.16.0
   - jekyll-remote-theme # 0.4.3
   - jekyll-sitemap # 1.4.0
 

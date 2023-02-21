@@ -33,8 +33,6 @@ GEM
       webrick (~> 1.7)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-redirect-from (0.16.0)
-      jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
     jekyll-sitemap (1.4.0)
@@ -78,7 +76,6 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 4.3.2)
   jekyll-feed
-  jekyll-redirect-from
   jekyll-sitemap
   kramdown-parser-gfm
   tzinfo (~> 1.2)
@@ -87,4 +84,4 @@ DEPENDENCIES
   webrick
 
 BUNDLED WITH
-   2.4.6
+   2.4.7
