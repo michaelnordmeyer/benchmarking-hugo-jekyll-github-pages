@@ -38,20 +38,20 @@ EOF
 html_test=$(cat << EOF
 ## HTML5 Tags Supported by Markdown
 
-These supported tags come from the WordPress.com code [FAQ](https://wordpress.com/support/code/).
+These are the supported HTML tags, which will be generated from Markdown.
 
-# Header one
-## Header two
-### Header three
-#### Header four
-##### Header five
-###### Header six
+# Heading One
+## Heading Two
+### Heading Three
+#### Heading Four
+##### Heading Five
+###### Heading Six
 
 ### Paragraphs
 
 An ordinary paragraph with some text.
 
-Another paragraph with more text to show, how the paragraph spacing is done. Note: Paragraphs with proper line height are mandatory for a good reading experience. Too large or too little makes a webpage unattractive.
+Another paragraph with more text to show, how the paragraph spacing is done. Note: Paragraphs with proper line height are mandatory for a good reading experience. Too little or too large makes a webpage unattractive.
 
 ### Lists
 
@@ -87,21 +87,21 @@ Another paragraph with more text to show, how the paragraph spacing is done. Not
 
 ### Anchor Tag (aka Link)
 
-This is an example of a [link](https://example.com).
+This is a [link](https://example.com).
 
 ### Block-Quote Tag
 
 Single-line block-quote:
 
-> Stay hungry. Stay foolish.
+> The most complicated skill is to be simple.
 
 Multi-line block-quote with a cite reference:
 
-> People think focus means saying yes to the thing you've got to focus on. But that's not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick carefully. I'm actually as proud of the things we haven't done as the things I have done. Innovation is saying no to 1,000 things. <cite>Steve Jobs - Apple Worldwide Developers' Conference, 1997</cite>
+> That’s been one of my mantras – focus and simplicity. Simple can be harder than complex. You have to work hard to get your thinking clean to make it simple. But it’s worth it in the end because once you get there, you can move mountains. —<cite>Steve Jobs</cite>
 
 ### Code Tag
 
-You will learn later on in these tests that \`word-wrap: break-word;\` will be your best friend.
+A code tag markups code \`print("Hello World")\` for better separation from the text around it.
 
 ### Emphasize Tag
 
@@ -109,18 +109,20 @@ The emphasize tag should *italicize* text.
 
 ### Image Tag
 
+The image tag will show the image of \`icon.webp\`, if it exists:
+
 ![Image Alt Text](icon.webp "Image Title Text")
 
-### Preformatted Tag
+### Pre-Formatted Tag
 
-This tag was generated from Markdown's \`\`\` with rouge syntax highlighter for no specific syntax:
+This tag was generated from Markdown's code fencing (\`\`\`) with no specific syntax:
 
 \`\`\`
-.post-title {
-  margin: 0 0 5px;
+.header {
+  margin: 2em 0;
+  font-size: 36px;
   font-weight: bold;
-  font-size: 38px;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 \`\`\`
 
@@ -134,12 +136,11 @@ This tag shows **bold** text.
 
 ### Tables (But Without the Caption)
 
-| Employee                     | Salary | Reason                                                      |
-| ---------------------------- | ------:| ----------------------------------------------------------- |
-| [Jane](https://example.com/) |    \$1 | Because that's all Steve Job' needed for a salary.          |
-| [John](https://example.com/) | \$100K | For all the blogging he does.                               |
-| [Jane](https://example.com/) | \$100M | Pictures are worth a thousand words, right? So Tom x 1,000. |
-| [Jane](https://example.com/) | \$100B | With hair like that?! Enough said...                        |
+| Character                                                                      | Appearance |
+| ------------------------------------------------------------------------------ | ----------:|
+| [Donald Duck](https://en.wikipedia.org/wiki/Donald_Duck)                       |       1934 |
+| [Huey, Dewey, and Louie](https://en.wikipedia.org/wiki/Huey,_Dewey,_and_Louie) |       1937 |
+| [Scrooge McDuck](https://en.wikipedia.org/wiki/Scrooge_McDuck)                 |       1947 |
 
 ### Delete Tag
 
