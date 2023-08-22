@@ -171,7 +171,7 @@ mkdir -p ${posts_dir}
 echo "Generating ${3} posts for ${1}..."
 
 for ((index=1; index<="${3}"; index++)); do
-  if [ `expr ${index} % 100` -eq 0 ]; then
+  if [ $(expr ${index} % 100) -eq 0 ]; then
     printf "."
   fi
   cat >> ${posts_dir}/2023-01-01-${index}.md << EOF
@@ -184,4 +184,4 @@ ${body}
 EOF
 done
 
-printf "\nFinished generating ${3} posts for ${1}\n"
+printf "\nFinished generating %s posts for %s\n" "${3}" "${1}"
