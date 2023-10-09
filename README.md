@@ -8,7 +8,7 @@ While I realized that a remote theme will always be fetched while building, and,
 
 ## A Comment on Github Pages Gem's Current State
 
-Judging from the number of [ignored issues](https://github.com/github/pages-gem/issues) and [pull requests](https://github.com/github/pages-gem/pulls) for the Github Pages gem, and the availability to use your [own Github Actions workflow to build a static site on Github for Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), it is save to assume that the Github Pages gem is not relevant anymore and reached its end.
+Judging from the number of [ignored issues](https://github.com/github/pages-gem/issues) and [pull requests](https://github.com/github/pages-gem/pulls) for the Github Pages gem, and the availability to use your [own Github Actions workflow to build a static site on Github for Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), it is save to assume that the Github Pages gem is not relevant anymore, reached its end, and should be replaced with ordinary Jekyll builds.
 
 ## Methodology
 
