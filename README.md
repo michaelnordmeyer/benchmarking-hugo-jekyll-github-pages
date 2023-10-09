@@ -2,9 +2,13 @@
 
 This repository has several Hugo, Jekyll, and Github Pages blogs with all having the same minimal theme. The Jekyll and Github Pages blogs have both local and remote theme variants. The purpose is to benchmark build times.
 
-I started this very basic benchmark to get an idea of how much faster [Hugo](https://gohugo.io/) builds could be, because my local [Jekyll](https://jekyllrb.com/) setup with a remote theme took several seconds to build with a remote [Minima theme](https://github.com/jekyll/minima), and building my site on [Github Pages](https://pages.github.com/) took a minute. This was for about 120 posts and pages, an Atom and JSON feed, and a sitemap.xml.
+I started this very basic benchmark to get an idea of how much faster [Hugo](https://gohugo.io/) builds could be, because my local [Jekyll](https://jekyllrb.com/) setup with a remote theme took several seconds to build with a remote [Minima theme](https://github.com/jekyll/minima), and building my site on [Github Pages](https://pages.github.com/) using the traditional Github Pages gem took a minute. This was for about 120 posts and pages, an Atom and JSON feed, and a sitemap.xml.
 
-While I realized that a remote theme will always be fetched while building, and depending on the internet connection a local theme can save some time, I wanted to find out what else there is.
+While I realized that a remote theme will always be fetched while building, and, depending on the internet connection, a local theme can save some time, I wanted to find out what else there is.
+
+## A Comment on Github Pages Gem's Current State
+
+Judging from the number of [ignored issues](https://github.com/github/pages-gem/issues) and [pull requests](https://github.com/github/pages-gem/pulls) for the Github Pages gem, and the availability to use your [own Github Actions workflow to build a static site on Github for Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), it is save to assume that the Github Pages gem is not relevant anymore and reached its end.
 
 ## Methodology
 
