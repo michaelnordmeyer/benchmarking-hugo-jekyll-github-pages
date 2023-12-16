@@ -24,3 +24,22 @@ feed:
   path: /feed.xml
   posts_limit: 999
   # excerpt_only: false
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"

@@ -8,6 +8,14 @@ disableKinds = ['section', 'taxonomy', 'term']
   description = "Your site description"
   copyright = "Copyright © 2023 Your Name"
 
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    title = "about"
+    url = "/about/"
+    weight = 10
+
 [permalinks]
   # Hugo always adds a trailing slash to URLs, regardless of the configuration :(
   posts = "/:title/"

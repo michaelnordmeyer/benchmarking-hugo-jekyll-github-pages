@@ -7,9 +7,11 @@ fi
 
 if [ "${1}" == "hugo" ]; then
   posts_dir="content/posts"
+  pages_dir="content/"
   frontmatter_url="url"
 elif [ "${1}" == "jekyll" ]; then
   posts_dir="_posts"
+  pages_dir=""
   frontmatter_url="permalink"
 else
   echo "Unknow engine"
@@ -183,5 +185,14 @@ ${frontmatter_url}: /${index}
 ${body}
 EOF
 done
+
+cat >> ${pages_dir}about.md << EOF
+---
+title: About
+date: 2023-01-01 00:00:00 +0000
+${frontmatter_url}: /about
+---
+${body}
+EOF
 
 printf "\nFinished generating %s posts for %s\n" "${3}" "${1}"
