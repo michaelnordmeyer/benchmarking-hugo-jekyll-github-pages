@@ -13,7 +13,7 @@ date_format_long: "%B %-d, %Y"
 
 ## Github Pages Plugins
 # https://docs.github.com/en/github/working-with-github-pages/about-github-pages-and-jekyll#plugins
-# https://pages.github.com/versions/ Jekyll 3.9.3 vs. 4.3.2
+# https://pages.github.com/versions/ Jekyll 3.9.3 vs. 4.3.3
 plugins:
   - jekyll-feed # 0.15.1 vs. 0.17
   - jekyll-sitemap # 1.4.0
@@ -21,8 +21,7 @@ plugins:
 ## jekyll-feed
 lang: en
 feed:
-  path: /feed.xml
-  posts_limit: 999
+  posts_limit: 999999
   # excerpt_only: false
 
 defaults:
