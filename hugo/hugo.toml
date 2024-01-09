@@ -31,7 +31,7 @@ disableKinds = ['section', 'taxonomy', 'term']
 
 [services]
   [services.rss]
-    limit = -1
+    limit = 10
 
 [outputs]
   home = ["HTML", "Atom"]

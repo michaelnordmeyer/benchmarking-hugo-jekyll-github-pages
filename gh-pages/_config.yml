@@ -21,7 +21,7 @@ plugins:
 ## jekyll-feed
 lang: en-US
 feed:
-  posts_limit: 1000000
+  # posts_limit: 1000000
   # excerpt_only: false
 
 defaults:
