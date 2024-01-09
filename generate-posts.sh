@@ -40,7 +40,7 @@ rm -rf ${pages_dir}about.md
 rm -rf ${posts_dir}
 mkdir -p ${posts_dir}
 
-echo "Generating ${3} ${2} posts for ${1}..."
+echo "Generating ${3} ${2} posts for $(basename ${PWD}) (${1})..."
 
 for ((index=1; index<="${3}"; index++)); do
   if [ $(expr ${index} % 100) -eq 0 ]; then
@@ -68,4 +68,4 @@ ${frontmatter_url}: /about${slash}
 ${body}
 EOF
 
-printf "\nFinished generating %s %s posts for %s\n" "${3}" "${2}" "${1}"
+printf "\nFinished generating %s %s posts for %s\n" "${3}" "${2}" "$(basename ${PWD}) (${1})"

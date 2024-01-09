@@ -6,7 +6,6 @@ _site/
 
 # Jekyll Content
 _posts/
-*/images/
 
 # Hugo
 hugo/public/
@@ -14,6 +13,10 @@ hugo/resources/
 
 # Hugo Content
 hugo/content/
+
+# Content Both
+about.md
+*/images/
 
 # Personal Files
 posts-hugo/
