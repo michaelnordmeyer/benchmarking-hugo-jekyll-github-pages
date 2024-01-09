@@ -1,7 +1,7 @@
-url: https://jekyll.example.com
-title: Jekyll Test
+url: https://example.com
+title: Test
 author:
-  name: A Jekyll tester
+  name: A Tester
   # email: xxx@example.com
   uri: https://example.com/
 description: "Your site description"
@@ -19,9 +19,9 @@ plugins:
   - jekyll-sitemap # 1.4.0
 
 ## jekyll-feed
-lang: en
+lang: en-US
 feed:
-  posts_limit: 999999
+  posts_limit: 1000000
   # excerpt_only: false
 
 defaults:

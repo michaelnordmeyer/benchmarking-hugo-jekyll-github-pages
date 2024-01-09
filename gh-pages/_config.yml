@@ -1,7 +1,7 @@
-url: https://gh-pages.example.com
-title: Github Pages Test
+url: https://example.com
+title: Test
 author:
-  name: A Jekyll tester
+  name: A Tester
   # email: xxx@example.com
   uri: https://example.com/
 description: "Your site description"
@@ -19,7 +19,26 @@ plugins:
   - jekyll-sitemap # 1.4.0
 
 ## jekyll-feed
-lang: en
+lang: en-US
 feed:
-  posts_limit: 999999
+  posts_limit: 1000000
   # excerpt_only: false
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"

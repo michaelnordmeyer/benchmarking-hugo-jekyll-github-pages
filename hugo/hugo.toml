@@ -1,12 +1,17 @@
-baseURL = "https://hugo.example.com/"
-languageCode = "en-us"
-title = "Hugo Test"
+baseURL = "https://example.com/"
+languageCode = "en-US"
+title = "Test"
 theme = "etch"
 disableKinds = ['section', 'taxonomy', 'term']
 
 [params]
+  tagline = "Your tagline"
   description = "Your site description"
   copyright = "Copyright © 2023 Your Name"
+  [params.author]
+    email = "xxx@example.com"
+    name = "A Tester"
+    uri = "https://example.com/"
 
 [menu]
   [[menu.main]]
@@ -24,14 +29,21 @@ disableKinds = ['section', 'taxonomy', 'term']
   # Allows HTML in Markdown
   unsafe = true
 
-[mediaTypes]
-  [mediaTypes.'application/atom+xml']
-    suffixes = ['xml']
+[services]
+  [services.rss]
+    limit = -1
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "Atom"]
 
-[outputFormats]
-  [outputFormats.RSS]
-    mediatype = "application/atom+xml"
-    baseName = "feed"
+[mediaTypes]
+  [mediaTypes."application/atom+xml"]
+    suffixes = ["xml"]
+
+[outputFormats.Atom]
+  baseName = "feed"
+  mediaType = "application/atom+xml"
+  isHTML = false
+  isPlainText = false
+  noUgly = true
+  permalinkable = false

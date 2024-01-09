@@ -1,0 +1,93 @@
+{{- printf `<?xml version="1.0" encoding="utf-8"?>` | safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom"{{ with site.LanguageCode }} xml:lang="{{ . }}"{{ end }}>
+  {{- $output_formats := .OutputFormats -}}
+  {{- range $output_formats -}}
+    {{- $rel := (or (and (eq "atom" (.Name | lower)) "self") "alternate") -}}
+    {{- with $output_formats.Get .Name }}
+  {{ printf "<link href=%q rel=%q type=%q title=%q />" .Permalink $rel .MediaType.Type .Name | safeHTML }}
+    {{- end }}
+  {{- end }}
+  {{- range .Translations -}}
+    {{- $lang := .Lang -}}
+    {{- $language := index site.Data.i18n.languages .Lang -}}
+    {{- range $output_formats -}}
+      {{- with $output_formats.Get .Name }}
+  {{ printf `<link href=%q rel="alternate" type=%q hreflang=%q title="[%s] %s" />` .Permalink .MediaType.Type $lang $language .Name | safeHTML -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end }}
+  <updated>{{ now.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
+  <id>{{ .Permalink }}</id>
+  {{- with .Param "feed" -}}
+    {{/* Needs $icon file in assets/ directory */}}
+    {{- $icon := .icon | default "icon.svg" -}}
+    {{- with resources.Get $icon }}
+  <icon>{{ (. | fingerprint).Permalink }}</icon>
+    {{- end -}}
+    {{/* Needs $logo file in assets/ directory */}}
+    {{- $logo := .logo | default "logo.svg" -}}
+    {{- with resources.Get $logo }}
+  <logo>{{ (. | fingerprint).Permalink }}</logo>
+    {{- end -}}
+  {{- end }}
+  {{ printf `<title type="html"><![CDATA[%s]]></title>` site.Title | safeHTML }}
+  {{- with (or (site.Params.subtitle) (site.Params.tagline) (site.Params.description)) }}
+  {{ printf `<subtitle type="html"><![CDATA[%s]]></subtitle>` . | safeHTML }}
+  {{- end -}}
+  {{- with site.Params.author.name }}
+  <author>
+    <name>{{ . }}</name>
+    {{- with site.Params.author.email }}
+    <email>{{ . }}</email>
+    {{- end }}
+    {{- with site.Params.author.uri }}
+    <uri>{{ . }}</uri>
+    {{- end }}
+  </author>
+  {{- end -}}
+  {{- with site.Params.copyright -}}
+    {{- $copyright := replace . "{year}" now.Year -}} {{/* If site.Params.copyright contains "{year}" */}}
+    {{- $copyright = replace $copyright "&copy;" "©" }}
+  <rights>{{ $copyright | plainify }}</rights>
+  {{- end -}}
+  {{- $feed_sections := site.Params.feedSections | default site.Params.mainSections -}}
+  {{- $pages := where .RegularPages "Type" "in" $feed_sections -}}
+  {{- if (eq .Kind "home") -}}
+    {{- $pages = where site.RegularPages "Type" "in" $feed_sections -}}
+  {{- end -}}
+  {{- $limit := .Site.Config.Services.RSS.Limit -}}
+  {{- if ge $limit 1 -}}
+    {{- $pages = $pages | first $limit -}}
+  {{- end -}}
+  {{- range $pages -}}
+    {{- $page := . }}
+  <entry>
+    {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
+    <link href="{{ .Permalink }}" rel="alternate" type="text/html" />
+    <published>{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</published>
+    <updated>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
+    <id>{{ .Permalink }}</id>
+    {{- with .Params.author -}}
+      {{- range . }} <!-- Assuming the author front-matter to be a list -->
+    <author>
+      <name>{{ . }}</name>
+    </author>
+      {{- end }}
+    {{- end }}
+    {{- with site.Taxonomies -}}
+      {{- range $taxo,$_ := . -}} <!-- Defaults taxos: "tags", "categories" -->
+        {{- with $page.Param $taxo -}}
+          {{- $taxo_list := . -}} <!-- $taxo_list will be the tags/categories list -->
+          {{- with site.GetPage (printf "/%s" $taxo) -}}
+            {{- range $taxo_list }} <!-- Below, assuming pretty URLs -->
+    <category term="{{ (. | urlize) }}" label="{{ . }}" />
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end }}
+    {{ printf `<summary>%s</summary>` .Description | markdownify }}
+    {{ printf `<content type="html"><![CDATA[%s]]></content>` .Content | safeHTML }}
+  </entry>
+  {{- end }}
+</feed>
