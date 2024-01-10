@@ -2,12 +2,12 @@
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 {% include head.html %}
 <body>
-{% include header.html %}
+{% include_cached header.html title=site.title %}
 
     <main id="content">
         {{ content }}
     </main>
 
-{% include footer.html %}
+{% include_cached footer.html %}
 </body>
 </html>
