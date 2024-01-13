@@ -1,53 +1,69 @@
-# Benchmarking Hugo vs. Jekyll vs. Github Pages
+# Benchmarking Hugo vs. Jekyll vs. GitHub Pages
 
-This repository has a Hugo, Jekyll, and Github Pages blog with all having the same minimal theme. The purpose is to benchmark build times.
+This repository has a Hugo, Jekyll, and GitHub Pages blog with all having the same minimal theme. The purpose is to benchmark build times.
 
-I started this very basic benchmark to get an idea of how much faster [Hugo](https://gohugo.io/) builds could be, because my local [Jekyll](https://jekyllrb.com/) setup with a remote theme took several seconds to build with a remote [Minima theme](https://github.com/jekyll/minima), and building my site on [Github Pages](https://pages.github.com/) using the traditional Github Pages gem took a minute. This was for about 120 posts and pages, an Atom and JSON feed, and a sitemap.xml.
+I started this very basic benchmark to get an idea of how much faster [Hugo](https://gohugo.io/) builds could be, because my local [Jekyll](https://jekyllrb.com/) setup with a remote theme took several seconds to build with a remote [Minima theme](https://github.com/jekyll/minima), and building my site on [GitHub Pages](https://pages.github.com/) took a minute. This was for about 120 posts and pages, an Atom and JSON feed, and a sitemap.xml.
 
-While I realized that a remote theme will always be fetched while building, and, depending on the internet connection, a local theme can save some time, I wanted to find out what else there is.
+While I realize that a remote theme will always be fetched once while building, and, depending on the Internet connection, a local theme can save some time, I wanted to find out what else there is.
 
-## A Comment on Github Pages Gem's Current State
+## A Comment on GitHub Pages Gem’s Current State
 
-Judging from the number of [ignored issues](https://github.com/github/pages-gem/issues) and [pull requests](https://github.com/github/pages-gem/pulls) for the Github Pages gem, and the availability to use your [own Github Actions workflow to build a static site on Github for Github Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), it is save to assume that the Github Pages gem is not relevant anymore, reached its end, and should be replaced with ordinary Jekyll builds.
+Judging from the number of [ignored issues](https://github.com/github/pages-gem/issues) and [pull requests](https://github.com/github/pages-gem/pulls) for the GitHub Pages gem, and the availability to use your [own GitHub Actions workflow to build a static site on GitHub for GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), it is save to assume that the GitHub Pages gem is not relevant anymore, reached its end, and should be replaced with ordinary Jekyll builds. It probably only exists to not break stuff for some people.
+
+It also looks like after GitHub’s sale to Microsoft, and the founder, who created Jekyll, gone from GitHub, there is no one left championing Jekyll within the organization. But because it’s very mature, it doesn’t harm anyone in the mid-term.
 
 ## Methodology
 
-I deliberately chose a very simple theme called <q>[Etch](https://github.com/LukasJoswiak/etch)</q> for this test, to make sure, that differences in theme implementations are minimized and have no performance impact. As this theme is only available for Hugo, I [ported it to Jekyll](https://github.com/michaelnordmeyer/jekyll-theme-etch). The local variants are included in this repo.
+I deliberately chose a very simple theme called “[Etch](https://github.com/LukasJoswiak/etch)” for this test, to make sure that differences in theme implementations are minimized and have no performance impact. As this theme is only available for Hugo, I [ported it to Jekyll](https://github.com/michaelnordmeyer/jekyll-theme-etch). The local variants are included in [this repo](https://github.com/michaelnordmeyer/benchmarking-hugo-jekyll-github-pages).
 
-What this cannot test is the behavior of these engines with much more complicated themes, but this will always need an individual test.
+What this cannot test is the behavior of these engines with much more complicated themes, but this will always need individual tests.
 
-Benchmarking should be done with `time` to include the launch time of the engines, and not just relying on the reported build times. The average of ten runs seems right.
+Both Hugo and Ruby were installed via Homebrew on macOS: `brew install hugo ruby`. Jekyll was installed via bundler.
 
-Note: Your shell might have a built-in `time` command. Make sure to use `/usr/bin/time`.
+Benchmarking was done with `time` to include the launch time of the engines, and not just relying on the reported build times. I ran each build for each setup three times, and the average is reported below.
+
+Note: Your shell might have a built-in `time` command. Make sure to use `/usr/bin/time`. macOS users need GNU time, installed with `brew install gnu-time`, which becomes `gtime`.
+
+In the repository is a `benchmark.sh` script to run the benchmarks automatically. Note that creating 100,000 posts for three engines will need a couple of Gigabyte of free storage. There’s also `cleanup.sh`, which is only needed for failed or interrupted runs. Use at your own risk.
+
+## Versions and Hardware
+
+- Hugo: v0.121.2+extended
+- Jekyll: 4.3.3
+- GitHub Pages: 228 (uses Jekyll 3.9.3)
+- Ruby: 3.2.2 and 3.3.0
+- A theme based on Hugo theme Etch 0.41
 
 ## Data Set
 
-I used two post templates. One with just eight paragraphs of Lorem Ipsum, and one with all supported Markdown of Github-flavored Markdown.
+I used two post templates. One with just eight paragraphs of [Lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum), and one with all supported Markdown of GitHub-flavored Markdown.
 
-The data sets are generated by `generate-posts.sh` and consist of:
+The data sets were generated by `generate-posts.sh` and consist of:
 
 - 100/1,000/10,000/100,000 posts
-- 0 pages
+- 1 page
+- 1 Atom feed with full content
+- 1 sitemap.xml
 - 0 images
 - 2 static files (favicon.ico and robots.txt)
-- 1 Atom feed
-- 1 sitemap.xml
 
-There are no tags nor categories, and no redirects.
+There were one tag and one category, and no redirects. The default RSS feed for Hugo is a RSS 2.0 feed having only a summary. To have a fair comparison, I created an Atom feed with full content, which took significantly longer to build.
 
 There’s no Liquid or any Jekyll-specifics like internal linking or short codes included after the front matter.
 
 ## Hugo
 
-[Hugo supports asset minification](https://gohugo.io/hugo-pipes/minification/), which the [Etch theme uses](https://github.com/LukasJoswiak/etch/blob/master/layouts/partials/head.html#L12-L28). I patched this out manually, because Jekyll doesn't support minification without third-party plugins. The CSS is included statically and Etch's dark mode has been removed.
+[Hugo supports asset minification](https://gohugo.io/hugo-pipes/minification/), which the [Etch theme uses](https://github.com/LukasJoswiak/etch/blob/master/layouts/partials/head.html#L12-L28). I patched this out manually, because Jekyll doesn’t support minification without third-party plugins. The CSS is included statically and Etch’s dark mode has been removed.
 
 ## Jekyll
 
-The Github Pages plugin includes a bunch of other plugins, but they are not enabled in `_config.yml`.
+The GitHub Pages plugin includes a bunch of other plugins, but they were not enabled in `_config.yml`.
 
-To get feature parity with Hugo, additional plugins are `jekyll-feed` 0.15.1 for Github Pages and 0.17 for Jekyll, and `jekyll-sitemap` 1.4.0.
+To get feature parity with Hugo, additional plugins were `jekyll-feed` 0.15.1 for GitHub Pages and 0.17 for Jekyll, and `jekyll-sitemap` 1.4.0.
 
-The theme files where included in the blog itself to avoid any remote theme fetching. Etch’s dark mode is not implemented, and SASS is not used as the theme doesn’t use it for Hugo.
+The theme files were included in the blog itself to avoid any remote theme fetching. Etch’s dark mode is not implemented, and SASS is not used as the theme doesn’t use it for Hugo.
+
+`bundle exec jekyll build --incremental` or putting `incremental: true` in Jekyll’s `_config.yml` will improve subsequent build times, but it was disabled to have a level playing field.
 
 ## Results
 
