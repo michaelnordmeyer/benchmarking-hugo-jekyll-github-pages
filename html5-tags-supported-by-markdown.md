@@ -57,7 +57,7 @@ Multi-line block-quote with a cite reference:
 
 ### Code Tag
 
-A code tag markups code \`print("Hello World")\` for better separation from the text around it.
+A code tag markups code `print("Hello World")` for better separation from the text around it.
 
 ### Emphasize Tag
 
@@ -65,22 +65,22 @@ The emphasize tag should *italicize* text.
 
 ### Image Tag
 
-The image tag will show the image of \`icon.webp\`, if it exists:
+The image tag will show the image of `icon.webp`, if it exists:
 
 ![Image Alt Text](icon.webp "Image Title Text")
 
 ### Pre-Formatted Tag
 
-This tag was generated from Markdown's code fencing (\`\`\`) with no specific syntax:
+This tag was generated from Markdown's code fencing (```) with CSS syntax:
 
-\`\`\`
+```css
 .header {
   margin: 2em 0;
   font-size: 36px;
   font-weight: bold;
   line-height: 1.5;
 }
-\`\`\`
+```
 
 ### Strong Tag
 
@@ -108,4 +108,4 @@ Footnotes[^1] are not tags and therefore don’t belong to the HTML standard.
 
 ---
 
-[^1]: You can go back to the place, where the \`footnote\` was made.
+[^1]: You can go back to the place, where the `footnote` was made.

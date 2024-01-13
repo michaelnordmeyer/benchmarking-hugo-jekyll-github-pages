@@ -17,6 +17,7 @@ for site in hugo jekyll gh-pages; do
       if [ ${site} = "hugo" ]; then
         hugo version
         for i in $(seq ${1}); do
+          # Needs GNU time. On macOS/Homebrew it's gtime, on Linux just /usr/bin/time
           rm -rf public resources && gtime -f '%E' hugo --quiet
         done
         rm -rf public resources content
@@ -24,6 +25,7 @@ for site in hugo jekyll gh-pages; do
         ruby -v
         rm -f Gemfile.lock && bundle --no-color 1> /dev/null
         for i in $(seq ${1}); do
+          # Needs GNU time. On macOS/Homebrew it's gtime, on Linux just /usr/bin/time
           rm -rf _site && gtime -f '%E' bundle exec jekyll build --quiet
         done
         rm -rf _site .jekyll-cache _posts about.md

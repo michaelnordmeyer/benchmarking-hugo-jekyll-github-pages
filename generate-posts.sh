@@ -24,8 +24,8 @@ else
   exit 2
 fi
 
-lorem_ipsum=$(cat ../lorem-ipsum.txt)
-html_test=$(cat ../html5-tags-supported-by-markdown.html)
+lorem_ipsum=$(cat ../lorem-ipsum.md)
+html_test=$(cat ../html5-tags-supported-by-markdown.md)
 
 if [ "${2}" == "lorem" ]; then
   body=${lorem_ipsum}
