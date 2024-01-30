@@ -3,7 +3,7 @@
 set -e
 
 if [ -z ${1+x} ]; then
-  echo "Usage: $(basename ${0}) <number-of-iterations>"
+  echo "Usage: $(basename "${0}") <number-of-iterations>"
   exit 1
 fi
 
@@ -12,7 +12,7 @@ for site in hugo jekyll gh-pages; do
     for number in 100 1000 10000 100000; do
       cd ${site}
       echo; echo  "==> Running benchmark for ${site} with ${number} x ${payload} for ${1} times..."
-      [[ ${site} = "hugo" ]] && engine="hugo" || engine="jekyll"
+      [ ${site} = "hugo" ] && engine="hugo" || engine="jekyll"
       ../generate-posts.sh ${engine} ${payload} ${number}
       if [ ${site} = "hugo" ]; then
         hugo version
