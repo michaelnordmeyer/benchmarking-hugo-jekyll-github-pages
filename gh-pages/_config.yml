@@ -5,7 +5,7 @@ author:
   # email: xxx@example.com
   uri: https://example.com/
 description: "Your site description"
-copyright: "Copyright © 2023 Your Name"
+copyright: "Copyright © 2024 A Tester"
 
 timezone: Europe/Berlin
 date_format: "%b %-d, %Y"

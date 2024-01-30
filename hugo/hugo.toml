@@ -7,7 +7,7 @@ disableKinds = ['section', 'taxonomy', 'term']
 [params]
   tagline = "Your tagline"
   description = "Your site description"
-  copyright = "Copyright © 2023 Your Name"
+  copyright = "Copyright © 2024 A Tester"
   [params.author]
     email = "xxx@example.com"
     name = "A Tester"
