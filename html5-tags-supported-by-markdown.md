@@ -102,7 +102,7 @@ This tag shows **bold** text.
 
 ### Delete Tag
 
-This tag will let you ~~strikeout~~ text.
+This tag will let you ~~strikethrough~~ text.
 
 ### Footnotes
 
