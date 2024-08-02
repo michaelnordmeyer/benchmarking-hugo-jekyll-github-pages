@@ -108,5 +108,6 @@ This tag will let you ~~strikethrough~~ text.
 
 Footnotes[^1] are not tags and therefore don’t belong to the HTML standard.
 
+---
 
 [^1]: You can go back to the place, where the `footnote` was made.
