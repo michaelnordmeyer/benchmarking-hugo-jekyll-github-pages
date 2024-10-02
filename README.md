@@ -70,4 +70,4 @@ The theme files were included in the blog itself to avoid any remote theme fetch
 
 ## Results
 
-Some results benchmarked on a MacBook Pro M1 Max can be found [here](https://michaelnordmeyer.com/benchmarking-hugo-vs-jekyll-vs-github-pages-in-2023), but you can and should use your own blog's content for a better comparison.
+Some results benchmarked on a MacBook Pro M1 Max can be found [here](https://michaelnordmeyer.com/benchmarking-hugo-vs-jekyll-vs-github-pages-in-2024), but you can and should use your own blog's content for a better comparison.
