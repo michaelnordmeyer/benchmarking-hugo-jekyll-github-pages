@@ -7,9 +7,12 @@ if [ -z ${1+x} ]; then
   exit 1
 fi
 
-for site in hugo jekyll gh-pages; do
-  for payload in lorem htmltest; do
-    for number in 100 1000 10000 100000; do
+#for site in hugo jekyll gh-pages zola; do
+for site in hugo zola; do
+#  for payload in lorem htmltest; do
+  for payload in htmltest; do
+#    for number in 100 1000 10000 100000; do
+    for number in 10000; do
       cd ${site}
       echo; echo  "==> Running benchmark for ${site} with ${number} x ${payload} for ${1} times..."
       [ ${site} = "hugo" ] && engine="hugo" || engine="jekyll"

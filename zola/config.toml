@@ -1,0 +1,30 @@
+base_url = "https://example.com"
+default_language = "en"
+title = ""
+theme = "simple-dev-blog"
+
+description = "Your site description"
+
+author = "A Tester"
+#generate_feed = true
+#feed_filename = "feed.xml"
+
+#taxonomies = [
+#  {name = "categories", feed = false},
+#  {name = "tags", feed = false},
+#]
+
+slugify.paths = "off"
+trailing_slashes = false
+compile_sass = true
+smart_punctuation = true
+
+[markdown]
+  # Whether to do syntax highlighting
+  # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+  highlight_code = true
+
+[extra]
+  # Put all your custom variables here
+  tagline = "Your tagline"
+  copyright = "Copyright © 2024 A Tester"

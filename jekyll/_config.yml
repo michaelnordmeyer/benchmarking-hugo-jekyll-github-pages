@@ -14,7 +14,10 @@ date_format_long: "%B %-d, %Y"
 ## jekyll-feed
 lang: en-US
 feed:
-  # posts_limit: 1000000
+  path: /feed.atom
+  posts_limit: 1000000
+  hide_generator: true
+  smartify_content: true
   # excerpt_only: false
 
 defaults:
