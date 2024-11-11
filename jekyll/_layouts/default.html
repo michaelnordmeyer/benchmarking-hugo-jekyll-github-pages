@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+{% include head.html %}
+<body>
+{% include_cached header.html title=site.title %}
+
+    <main id="content">
+        {{ content }}
+    </main>
+
+{% include_cached footer.html %}
+</body>
+</html>

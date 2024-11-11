@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<h3>{{ page.list_title }}</h3>
+<ul id="posts">
+    {%- for post in site.posts %}
+        {% include post-list-item.html %}
+    {%- endfor %}
+</ul>

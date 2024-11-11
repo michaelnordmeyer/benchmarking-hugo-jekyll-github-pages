@@ -1,0 +1,49 @@
+baseURL = "https://example.com/"
+languageCode = "en-US"
+title = "Test"
+theme = "etch"
+disableKinds = ['section', 'taxonomy', 'term']
+
+[params]
+  tagline = "Your tagline"
+  description = "Your site description"
+  copyright = "Copyright © 2024 A Tester"
+  [params.author]
+    email = "xxx@example.com"
+    name = "A Tester"
+    uri = "https://example.com/"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    title = "about"
+    url = "/about/"
+    weight = 10
+
+[permalinks]
+  # Hugo always adds a trailing slash to URLs, regardless of the configuration :(
+  posts = "/:title/"
+
+[markup.goldmark.renderer]
+  # Allows HTML in Markdown
+  unsafe = true
+
+[services]
+  [services.rss]
+    limit = 10
+
+[outputs]
+  home = ["HTML", "Atom"]
+
+[mediaTypes]
+  [mediaTypes."application/atom+xml"]
+    suffixes = ["xml"]
+
+[outputFormats.Atom]
+  baseName = "feed"
+  mediaType = "application/atom+xml"
+  isHTML = false
+  isPlainText = false
+  noUgly = true
+  permalinkable = false
