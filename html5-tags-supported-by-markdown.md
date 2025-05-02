@@ -1,3 +1,9 @@
+---
+title: Markdown to HTML Test
+date: 2023-01-01 12:00:00 +00:00
+permalink: /markdown-to-html-test
+layout: post
+---
 ## HTML5 Tags Supported by Markdown
 
 These are the supported HTML tags, which will be generated from Markdown.
@@ -43,7 +49,7 @@ Another paragraph with more text to show, how the paragraph spacing is done. Not
 
 ### Anchor Tag (aka Link)
 
-This is a [link](https://example.com).
+This is a [link](https://example.com/).
 
 ### Block-Quote Tag
 
